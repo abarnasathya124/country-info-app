@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Country & Currency Info</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🌍 Country & Currency Info</h1>
+    <p>Search any country to see details and live exchange rates</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="countryInput"
+          placeholder="e.g. Japan, Brazil, Germany..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">Search</button>
+      </div>
+      <p id="errorMsg" class="error hidden"></p>
+    </section>
+
+    <section id="resultsSection" class="hidden">
+
+      <div class="country-card">
+        <div class="card-header">
+          <img id="flagImg" src="" alt="Country Flag" />
+          <div class="card-title">
+            <h2 id="countryName"></h2>
+            <span id="countryRegion" class="badge"></span>
+          </div>
+        </div>
+        <div class="card-details">
+          <div class="detail-item">
+            <span class="label">Capital</span>
+            <span id="capital" class="value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Population</span>
+            <span id="population" class="value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Currency</span>
+            <span id="currencyName" class="value"></span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Currency Code</span>
+            <span id="currencyCode" class="value"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="currency-card">
+        <h3>💱 Live Exchange Rate</h3>
+        <p class="rate-description">
+          1 USD =
+          <strong id="rateValue">—</strong>
+          <span id="rateCode"></span>
+        </p>
+        <div class="converter">
+          <label for="usdAmount">Convert USD</label>
+          <div class="converter-row">
+            <input type="number" id="usdAmount" value="1" min="0" />
+            <span>→</span>
+            <input type="text" id="convertedAmount" readonly placeholder="—" />
+            <span id="convertedCode"></span>
+          </div>
+        </div>
+        <p id="rateUnavailable" class="hidden muted">
+          Exchange rate not available for this currency.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Data from <a href="https://restcountries.com" target="_blank">RestCountries</a>
+    & <a href="https://exchangerate-api.com" target="_blank">ExchangeRate-API</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
